@@ -1,0 +1,92 @@
+p a {
+  	font-family: 'Work Sans', sans-serif;
+  	line-height: inherit; 
+  	color: #258faf;
+    text-decoration: underline;
+}
+
+a:hover {
+   text-decoration: underline;
+}
+
+a img {
+   border: none; 
+}
+
+/* Default paragraph styles */
+p {
+  	font-family: 'Work Sans' , sans-serif;
+  	font-weight: normal;
+  	font-size: 16px;
+  	line-height: 1.4;
+  	margin-bottom: 12px;
+  	text-align: left;
+  	text-rendering: optimizeLegibility;
+  	color: #73737a;
+}
+
+/* Default header styles */
+h1, h2, h3, h4, h5, h6 {
+  	font-family: 'Work Sans', sans-serif;
+  	text-rendering: optimizeLegibility;
+  	font-style: normal;
+  	margin: 0 0 16px 0;
+  	line-height: 1.4;
+    color: #0f0f11;
+}
+
+hr {
+  	border: solid #8f8f95;
+  	border-width: 2px 0 0;
+  	clear: both;
+  	margin: 30px 0;
+  	height: 0; 
+}
+
+/* Helpful Typography Defaults */
+em,
+i {
+  	font-style: italic;
+  	line-height: inherit;
+}
+
+strong,
+b {
+  	font-weight: 600;
+  	line-height: inherit; 
+}
+
+small {
+  	font-size: 60%;
+  	line-height: inherit; 
+}
+
+code {
+  	font-family: Consolas, "Liberation Mono", Courier, monospace;
+  	font-weight: normal;
+  	color: #333333;
+  	background-color: #f8f8f8;
+  	border-width: 1px;
+  	border-style: solid;
+  	border-color: #e0e0e0;
+  	padding: 0.125rem 0.3125rem 0.0625rem;
+}
+
+/* Lists */
+ul,
+ol,
+dl {
+  	font-family: 'Work Sans', sans-serif;
+  	list-style-position: outside;
+  	margin-bottom: 12px;
+  	line-height: 1.6;
+  	font-size: 16px;
+  	color: #73737a;
+}
+
+.broadcast{
+    font-family: 'Broadcast Matter', serif;
+    font-size: 16px;
+    color: #f1c40f;
+    font-size: 80px;
+}
