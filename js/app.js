@@ -162,7 +162,7 @@ $(document).ready(function() {
 
 	var $cardBanner = $('.card-banner');
 	if ($cardBanner.length != 0) {		
-		loadScript('https://cdn.jsdelivr.net/combine/npm/slick-carousel@1.6.0').then(function() {
+		//loadScript('https://cdn.jsdelivr.net/combine/npm/slick-carousel@1.6.0').then(function() {
 			$('.carousel').slick({
 				arrows: false,
 				dots: true,
@@ -179,7 +179,7 @@ $(document).ready(function() {
 			
 			
 			$cardBanner.css({display:'block'});
-		});
+		//});
 	}
 		
 	
