@@ -1192,7 +1192,7 @@ form textarea {
 }
 
 .banner-parallax{
-    background-image: url("../images/banner-parallax.jpg");
+    background-image: url("https://cdn.jsdelivr.net/gh/studiogt/gabrielcarneiro@1.0.2/images/banner-parallax.jpg");
     height: 550px;
     background-attachment: fixed;
     background-position: center;
@@ -1202,9 +1202,15 @@ form textarea {
     .vendor(filter, brightness(0.9));
 }
 
+.webp {
+  .banner-parallax {
+    background-image: url("https://cdn.jsdelivr.net/gh/studiogt/gabrielcarneiro@1.0.2/images/banner-parallax.jpg.webp")
+  }
+}
+
 @media (max-width: 600px) {
     .banner-parallax{
-        background-image: url("../images/banner-parallax-360.jpg");
+        background-image: url("https://cdn.jsdelivr.net/gh/studiogt/gabrielcarneiro@1.0.2/images/banner-parallax-360.jpg");
         height: 250px;
         background-attachment: initial;
         background-position: center;
@@ -1212,6 +1218,11 @@ form textarea {
         background-size: contain;
         margin-top: 40px;
         .vendor(filter, brightness(0.9));
+    }
+    .webp {
+      .banner-parallax {
+        background-image: url("https://cdn.jsdelivr.net/gh/studiogt/gabrielcarneiro@1.0.2/images/banner-parallax-360.jpg.webp")
+      }
     }
 
 }
@@ -1332,7 +1343,7 @@ footer{
     }
 
     .top-footer {
-        background: #e8b001 url(../images/footer-bg.jpg) no-repeat;
+        background: #e8b001 url(https://cdn.jsdelivr.net/gh/studiogt/gabrielcarneiro@1.0.2/images/footer-bg.jpg) no-repeat;
         height: 460px;
         width: 100%;
         padding: 45px 0;
@@ -1352,7 +1363,7 @@ footer{
 
         i:hover {
             color: @black;
-        }   
+        }    
 
         ul {
             list-style: none;

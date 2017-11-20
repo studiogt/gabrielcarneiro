@@ -327,9 +327,6 @@ $(document).load(function(){
 	$(function(){
 		window.setTimeout(function() {
 
-			$('iframe[data-src]').each(function(){
-				$(this).attr('src',$(this).data('src'));
-			});
 		},0);
 	});
 });
@@ -349,6 +346,9 @@ $(function(){
 //}
 
 $(function(){
+		$('iframe[data-src]').each(function(){
+			$(this).attr('src',$(this).data('src'));
+		});
 	
 		var $img = $('#flyer img');
 		if ($img.length==0) return;
