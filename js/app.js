@@ -1,27 +1,6 @@
 var theWindow = $(window).width();
 
-var loadScript = (function(){
-	var scripts = {};
 
-	return function(src) {
-		var dfd = $.Deferred();
-		if (undefined === scripts[src]) {
-			var script = document.createElement('script');
-			script.async = 'async';
-			script.src = src;
-			script.onload = function() {
-				dfd.resolve();
-			};
-
-			$(window).on('load',function() {
-				console.log(src);
-				document.head.appendChild(script);
-			});
-			scripts[src] = dfd.promise();
-		}
-		return scripts[src];
-	};
-}());
 
 
 $(document).ready(function() {
@@ -66,7 +45,7 @@ $(document).ready(function() {
 		});
 	}
 
-	loadScript('https://cdn.jsdelivr.net/combine/npm/fancybox@2.1.5/dist/js/jquery.fancybox.pack.min.js').then(function() {
+	
 		$('.fancy').fancybox({
 			helpers : {
 				title : {
@@ -80,7 +59,7 @@ $(document).ready(function() {
 				$(':text').setMask();
 			}
 		});
-	});
+	
 
 	 $('[data-menu]').each(function(){
          var menu = $(this).data('menu');
@@ -370,7 +349,7 @@ $(function(){
 //}
 
 $(function(){
-	loadScript('https://cdn.jsdelivr.net/combine/npm/fancybox@2.1.5/dist/js/jquery.fancybox.pack.min.js').then(function() {
+	
 		var $img = $('#flyer img');
 		if ($img.length==0) return;
 		var flyer = new Image();
@@ -383,5 +362,5 @@ $(function(){
 			});
 		}
 		flyer.src = $('#flyer img').attr('src');
-	});
+
 });								
