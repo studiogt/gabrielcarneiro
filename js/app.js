@@ -1,5 +1,29 @@
 var theWindow = $(window).width();
 
+var loadScript = (function(){
+	var scripts = {};
+
+	return function(src) {
+		var dfd = $.Deferred();
+		if (undefined === scripts[src]) {
+			var script = document.createElement('script');
+			script.async = 'async';
+			script.src = src;
+			script.onload = function() {
+				dfd.resolve();
+			};
+
+			$(window).on('load',function() {
+				console.log(src);
+				document.head.appendChild(script);
+			});
+			scripts[src] = dfd.promise();
+		}
+		return scripts[src];
+	};
+}());
+
+
 $(document).ready(function() {
 
 	if(theWindow < 1024) {
@@ -42,18 +66,20 @@ $(document).ready(function() {
 		});
 	}
 
-	$('.fancy').fancybox({
-		helpers : {
-			title : {
-				type : 'inside'
+	loadScript('https://cdn.jsdelivr.net/combine/npm/fancybox@2.1.5/dist/js/jquery.fancybox.pack.min.js').then(function() {
+		$('.fancy').fancybox({
+			helpers : {
+				title : {
+					type : 'inside'
+				},
+				overlay : {
+					locked : false
+				}
 			},
-			overlay : {
-				locked : false
+			afterShow: function() {
+				$(':text').setMask();
 			}
-		},
-		afterShow: function() {
-			$(':text').setMask();
-		}
+		});
 	});
 
 	 $('[data-menu]').each(function(){
@@ -157,22 +183,24 @@ $(document).ready(function() {
 
 	var $cardBanner = $('.card-banner');
 	if ($cardBanner.length != 0) {		
-		$('.carousel').slick({
-			arrows: false,
-			dots: true,
-			slidesToShow: 1,
-	        autoplay: true,
-	        lazyLoad: 'ondemand'
+		loadScript('https://cdn.jsdelivr.net/combine/npm/slick-carousel@1.6.0').then(function() {
+			$('.carousel').slick({
+				arrows: false,
+				dots: true,
+				slidesToShow: 1,
+		        autoplay: true,
+		        lazyLoad: 'ondemand'
+			});
+			$('.carousel').on('beforeChange', function(event, slick, currentSlide, nextSlide) {			
+				var $el = $('.carousel [data-slick-index="'+nextSlide+'"]');	
+				(function($el){
+					loadLargeImage($el);		
+				}($el));
+			})
+			
+			
+			$cardBanner.css({display:'block'});
 		});
-		$('.carousel').on('beforeChange', function(event, slick, currentSlide, nextSlide) {			
-			var $el = $('.carousel [data-slick-index="'+nextSlide+'"]');	
-			(function($el){
-				loadLargeImage($el);		
-			}($el));
-		})
-		
-		
-		$cardBanner.css({display:'block'});
 	}
 		
 	
@@ -342,16 +370,18 @@ $(function(){
 //}
 
 $(function(){
-	var $img = $('#flyer img');
-	if ($img.length==0) return;
-	var flyer = new Image();
-	flyer.onload = function() {
-		$.fancybox({
-			href:'#flyer',
-			autoResize : false,
-			autoCenter : false,
-			autoSize : true
-		});
-	}
-	flyer.src = $('#flyer img').attr('src');
+	loadScript('https://cdn.jsdelivr.net/combine/npm/fancybox@2.1.5/dist/js/jquery.fancybox.pack.min.js').then(function() {
+		var $img = $('#flyer img');
+		if ($img.length==0) return;
+		var flyer = new Image();
+		flyer.onload = function() {
+			$.fancybox({
+				href:'#flyer',
+				autoResize : false,
+				autoCenter : false,
+				autoSize : true
+			});
+		}
+		flyer.src = $('#flyer img').attr('src');
+	});
 });								
